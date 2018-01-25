@@ -99,7 +99,7 @@ class PCD8544:
         self.voltage    = 3060
 
         # init the SPI bus and pins
-        spi.init(spi.MASTER, baudrate=328125, bits=8, polarity=0, phase=1, firstbit=spi.MSB)
+        spi.init(1, baudrate=328125, bits=8, polarity=0, phase=1, sck=18, mosi=23, miso=19)# This line is changed in order to work with ESP32 Dev Kit
         if "OUT_PP" in dir(rst):
             # pyBoard style
             rst.init(rst.OUT_PP, rst.PULL_NONE)  # Reset line
